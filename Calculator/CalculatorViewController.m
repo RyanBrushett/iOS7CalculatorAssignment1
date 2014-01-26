@@ -39,19 +39,29 @@
    CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
 }
 -(IBAction)Number5:(id)sender{
-   
+   SelectedNumber *= 10;
+   SelectedNumber += 5;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
 }
 -(IBAction)Number6:(id)sender{
-   
+   SelectedNumber *= 10;
+   SelectedNumber += 6;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
 }
 -(IBAction)Number7:(id)sender{
-   
+   SelectedNumber *= 10;
+   SelectedNumber += 7;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
 }
 -(IBAction)Number8:(id)sender{
-   
+   SelectedNumber *= 10;
+   SelectedNumber += 8;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
 }
 -(IBAction)Number9:(id)sender{
-   
+   SelectedNumber *= 10;
+   SelectedNumber += 9;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
 }
 -(IBAction)Decimal:(id)sender{
    
@@ -74,7 +84,9 @@
    
 }
 -(IBAction)AllClear:(id)sender{
-   
+   SelectedNumber = 0;
+   Operation = 0;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
 }
 -(IBAction)Backspace:(id)sender{
    
