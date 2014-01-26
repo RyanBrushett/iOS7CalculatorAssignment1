@@ -14,6 +14,8 @@
 
 @implementation CalculatorViewController
 
+#pragma mark - Numbers/Digits
+
 -(IBAction)Number0:(id)sender{
    SelectedNumber *= 10;
    CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
@@ -67,6 +69,8 @@
    
 }
 
+#pragma mark - Operations
+
 -(IBAction)Multiply:(id)sender{
    
 }
@@ -79,10 +83,12 @@
 -(IBAction)Subtraction:(id)sender{
    
 }
-
 -(IBAction)Equals:(id)sender{
    
 }
+
+#pragma mark - Clear/Delete
+
 -(IBAction)AllClear:(id)sender{
    SelectedNumber = 0;
    Operation = 0;
