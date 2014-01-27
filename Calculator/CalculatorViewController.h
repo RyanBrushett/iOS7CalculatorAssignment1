@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-int Operation;
-int SelectedNumber;
+int operation;
+int selectedNumber;
 float RunningTotal;
 
 @interface CalculatorViewController : UIViewController

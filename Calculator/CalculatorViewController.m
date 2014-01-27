@@ -17,56 +17,88 @@
 #pragma mark - Numbers/Digits
 
 -(IBAction)Number0:(id)sender{
-   SelectedNumber *= 10;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
+   selectedNumber *= 10;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Number1:(id)sender{
-   SelectedNumber *= 10;
-   SelectedNumber += 1;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
+   selectedNumber *= 10;
+   selectedNumber += 1;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Number2:(id)sender{
-   SelectedNumber *= 10;
-   SelectedNumber += 2;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
+   selectedNumber *= 10;
+   selectedNumber += 2;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Number3:(id)sender{
-   SelectedNumber *= 10;
-   SelectedNumber += 3;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
+   selectedNumber *= 10;
+   selectedNumber += 3;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Number4:(id)sender{
-   SelectedNumber *= 10;
-   SelectedNumber += 4;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
+   selectedNumber *= 10;
+   selectedNumber += 4;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Number5:(id)sender{
-   SelectedNumber *= 10;
-   SelectedNumber += 5;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
+   selectedNumber *= 10;
+   selectedNumber += 5;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Number6:(id)sender{
-   SelectedNumber *= 10;
-   SelectedNumber += 6;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
+   selectedNumber *= 10;
+   selectedNumber += 6;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Number7:(id)sender{
-   SelectedNumber *= 10;
-   SelectedNumber += 7;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
+   selectedNumber *= 10;
+   selectedNumber += 7;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Number8:(id)sender{
-   SelectedNumber *= 10;
-   SelectedNumber += 8;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
+   selectedNumber *= 10;
+   selectedNumber += 8;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Number9:(id)sender{
-   SelectedNumber *= 10;
-   SelectedNumber += 9;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
+   selectedNumber *= 10;
+   selectedNumber += 9;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Decimal:(id)sender{
-   
+   if (CalcDisplay.text.length >= 9) {
+      return;
+   }
 }
 
 #pragma mark - Operations
@@ -90,13 +122,17 @@
 #pragma mark - Clear/Delete
 
 -(IBAction)AllClear:(id)sender{
-   SelectedNumber = 0;
-   Operation = 0;
-   CalcDisplay.text = [NSString stringWithFormat:@"%i", SelectedNumber];
+   selectedNumber = 0;
+   operation = 0;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
 -(IBAction)Backspace:(id)sender{
-   
+   NSInteger temporary = [CalcDisplay.text integerValue];
+   selectedNumber = (int)temporary / 10;
+   CalcDisplay.text = [NSString stringWithFormat:@"%i", selectedNumber];
 }
+
+#pragma mark - Other
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
