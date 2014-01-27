@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 int operation;
-int selectedNumber;
+long selectedNumber;
 float runningTotal;
 
 @interface CalculatorViewController : UIViewController
