@@ -10,7 +10,7 @@
 
 int operation;
 int selectedNumber;
-float RunningTotal;
+float runningTotal;
 
 @interface CalculatorViewController : UIViewController
 {
