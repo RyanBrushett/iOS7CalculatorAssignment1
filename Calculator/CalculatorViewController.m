@@ -241,7 +241,7 @@
    CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
 -(IBAction)Backspace:(id)sender{
-   long temporary = [CalcDisplay.text longLongValue];
+   long temporary = (long)[CalcDisplay.text longLongValue];
    selectedNumber = temporary / 10;
    CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
