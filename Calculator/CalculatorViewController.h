@@ -33,8 +33,14 @@ float runningTotal;
 -(IBAction)Divide:(id)sender;
 -(IBAction)Addition:(id)sender;
 -(IBAction)Subtraction:(id)sender;
-
+-(IBAction)oneOverX:(id)sender;
+-(IBAction)squareRoot:(id)sender;
+-(IBAction)xSquared:(id)sender;
+-(IBAction)xCubed:(id)sender;
+-(IBAction)yToX:(id)sender;
+-(IBAction)positiveOrNegative:(id)sender;
 -(IBAction)Equals:(id)sender;
+
 -(IBAction)AllClear:(id)sender;
 -(IBAction)Backspace:(id)sender;
 

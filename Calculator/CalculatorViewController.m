@@ -18,29 +18,26 @@
 
 -(IBAction)Number0:(id)sender{
    if (operation != -1){
-      CalcDisplay.text = @"0";
+//      CalcDisplay.text = @"0";
    }
-   if (CalcDisplay.text.length <= 9 && operation == -1) {
+   if (CalcDisplay.text.length <= 9) {
       selectedNumber *= 10;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
 }
 -(IBAction)Number1:(id)sender{
    if (operation != -1){
-      CalcDisplay.text = @"0";
+//      CalcDisplay.text = @"0";
    }
    if (CalcDisplay.text.length <= 9) {
       selectedNumber *= 10;
       selectedNumber += 1;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   if (CalcDisplay.text.length >= 10 ) {
-      return;
-   }
 }
 -(IBAction)Number2:(id)sender{
    if (operation != -1){
-      CalcDisplay.text = @"0";
+//      CalcDisplay.text = @"0";
    }
    if (CalcDisplay.text.length <= 9) {
       selectedNumber *= 10;
@@ -50,7 +47,7 @@
 }
 -(IBAction)Number3:(id)sender{
    if (operation != -1){
-      CalcDisplay.text = @"0";
+//      CalcDisplay.text = @"0";
    }
    if (CalcDisplay.text.length <= 9) {
       selectedNumber *= 10;
@@ -60,7 +57,7 @@
 }
 -(IBAction)Number4:(id)sender{
    if (operation != -1){
-      CalcDisplay.text = @"0";
+//      CalcDisplay.text = @"0";
    }
    if (CalcDisplay.text.length <= 9) {
       selectedNumber *= 10;
@@ -70,7 +67,7 @@
 }
 -(IBAction)Number5:(id)sender{
    if (operation != -1){
-      CalcDisplay.text = @"0";
+//      CalcDisplay.text = @"0";
    }
    if (CalcDisplay.text.length <= 9) {
       selectedNumber *= 10;
@@ -80,7 +77,7 @@
 }
 -(IBAction)Number6:(id)sender{
    if (operation != -1){
-      CalcDisplay.text = @"0";
+//      CalcDisplay.text = @"0";
    }
    if (CalcDisplay.text.length <= 9) {
       selectedNumber *= 10;
@@ -90,7 +87,7 @@
 }
 -(IBAction)Number7:(id)sender{
    if (operation != -1){
-      CalcDisplay.text = @"0";
+//      CalcDisplay.text = @"0";
    }
    if (CalcDisplay.text.length <= 9) {
       selectedNumber *= 10;
@@ -100,7 +97,7 @@
 }
 -(IBAction)Number8:(id)sender{
    if (operation != -1){
-      CalcDisplay.text = @"0";
+//      CalcDisplay.text = @"0";
    }
    if (CalcDisplay.text.length <= 9) {
       selectedNumber *= 10;
@@ -110,7 +107,7 @@
 }
 -(IBAction)Number9:(id)sender{
    if (operation != -1){
-      CalcDisplay.text = @"0";
+//      CalcDisplay.text = @"0";
    }
    if (CalcDisplay.text.length <= 9) {
       selectedNumber *= 10;
@@ -225,6 +222,66 @@
    }
    operation = 1;
    selectedNumber = 0;
+}
+-(IBAction)oneOverX:(id)sender{
+   if (runningTotal == 0){
+      runningTotal = selectedNumber;
+   }
+   runningTotal = 1 / runningTotal;
+   operation = -1;
+   selectedNumber = runningTotal;
+   int decimalPlaces = 10;
+   NSString *formatString = [NSString stringWithFormat:@"%%1.%if",decimalPlaces];
+   CalcDisplay.text = [NSString stringWithFormat:formatString, runningTotal];
+}
+-(IBAction)squareRoot:(id)sender{
+
+}
+-(IBAction)xSquared:(id)sender{
+   if (runningTotal == 0){
+      runningTotal = selectedNumber;
+   }
+   runningTotal *= runningTotal;
+   operation = -1;
+   int decimalPlaces = 2;
+   NSString *formatString = [NSString stringWithFormat:@"%%1.%if",decimalPlaces];
+   if ([NSString stringWithFormat:formatString, runningTotal].length > 10) {
+      CalcDisplay.text = @"Ovrflw Err";
+      runningTotal = 0;
+      selectedNumber = 0;
+      operation = -1;
+      return;
+   }
+   else{
+      CalcDisplay.text = [NSString stringWithFormat:formatString, runningTotal];
+      selectedNumber = (float)[CalcDisplay.text floatValue];
+   }
+}
+-(IBAction)xCubed:(id)sender{
+   if (runningTotal == 0){
+      runningTotal = selectedNumber;
+   }
+   runningTotal *= runningTotal * runningTotal;
+   operation = -1;
+   int decimalPlaces = 2;
+   NSString *formatString = [NSString stringWithFormat:@"%%1.%if",decimalPlaces];
+   if ([NSString stringWithFormat:formatString, runningTotal].length > 10) {
+      CalcDisplay.text = @"Ovrflw Err";
+      runningTotal = 0;
+      selectedNumber = 0;
+      operation = -1;
+      return;
+   }
+   else{
+      CalcDisplay.text = [NSString stringWithFormat:formatString, runningTotal];
+      selectedNumber = (float)[CalcDisplay.text floatValue];
+   }
+}
+-(IBAction)yToX:(id)sender{
+   
+}
+-(IBAction)positiveOrNegative:(id)sender{
+   
 }
 -(IBAction)Equals:(id)sender{
    if (runningTotal == 0){
