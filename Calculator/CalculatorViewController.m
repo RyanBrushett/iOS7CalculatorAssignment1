@@ -17,86 +17,109 @@
 #pragma mark - Numbers/Digits
 
 -(IBAction)Number0:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (operation != -1){
+      CalcDisplay.text = @"0";
+   }
+   if (CalcDisplay.text.length <= 9 && operation == -1) {
+      selectedNumber *= 10;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   selectedNumber *= 10;
-   CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
 -(IBAction)Number1:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (operation != -1){
+      CalcDisplay.text = @"0";
+   }
+   if (CalcDisplay.text.length <= 9) {
+      selectedNumber *= 10;
+      selectedNumber += 1;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   selectedNumber *= 10;
-   selectedNumber += 1;
-   CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
+   if (CalcDisplay.text.length >= 10 ) {
+      return;
+   }
 }
 -(IBAction)Number2:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (operation != -1){
+      CalcDisplay.text = @"0";
+   }
+   if (CalcDisplay.text.length <= 9) {
+      selectedNumber *= 10;
+      selectedNumber += 2;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   selectedNumber *= 10;
-   selectedNumber += 2;
-   CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
 -(IBAction)Number3:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (operation != -1){
+      CalcDisplay.text = @"0";
+   }
+   if (CalcDisplay.text.length <= 9) {
+      selectedNumber *= 10;
+      selectedNumber += 3;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   selectedNumber *= 10;
-   selectedNumber += 3;
-   CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
 -(IBAction)Number4:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (operation != -1){
+      CalcDisplay.text = @"0";
+   }
+   if (CalcDisplay.text.length <= 9) {
+      selectedNumber *= 10;
+      selectedNumber += 4;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   selectedNumber *= 10;
-   selectedNumber += 4;
-   CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
 -(IBAction)Number5:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (operation != -1){
+      CalcDisplay.text = @"0";
+   }
+   if (CalcDisplay.text.length <= 9) {
+      selectedNumber *= 10;
+      selectedNumber += 5;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   selectedNumber *= 10;
-   selectedNumber += 5;
-   CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
 -(IBAction)Number6:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (operation != -1){
+      CalcDisplay.text = @"0";
+   }
+   if (CalcDisplay.text.length <= 9) {
+      selectedNumber *= 10;
+      selectedNumber += 6;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   selectedNumber *= 10;
-   selectedNumber += 6;
-   CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
 -(IBAction)Number7:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (operation != -1){
+      CalcDisplay.text = @"0";
+   }
+   if (CalcDisplay.text.length <= 9) {
+      selectedNumber *= 10;
+      selectedNumber += 7;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   selectedNumber *= 10;
-   selectedNumber += 7;
-   CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
 -(IBAction)Number8:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (operation != -1){
+      CalcDisplay.text = @"0";
+   }
+   if (CalcDisplay.text.length <= 9) {
+      selectedNumber *= 10;
+      selectedNumber += 8;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   selectedNumber *= 10;
-   selectedNumber += 8;
-   CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
 -(IBAction)Number9:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (operation != -1){
+      CalcDisplay.text = @"0";
+   }
+   if (CalcDisplay.text.length <= 9) {
+      selectedNumber *= 10;
+      selectedNumber += 9;
       CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
    }
-   selectedNumber *= 10;
-   selectedNumber += 9;
-   CalcDisplay.text = [NSString stringWithFormat:@"%ld", selectedNumber];
 }
 -(IBAction)Decimal:(id)sender{
-   if (CalcDisplay.text.length >= 9) {
+   if (CalcDisplay.text.length <= 9) {
       return;
    }
 }
@@ -259,8 +282,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Custom stuff in here
+   [super viewDidLoad];
+   operation = -1;
 }
 
 - (void)didReceiveMemoryWarning
