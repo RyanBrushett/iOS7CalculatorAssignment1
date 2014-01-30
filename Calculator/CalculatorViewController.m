@@ -126,8 +126,7 @@
 -(IBAction)Multiply:(id)sender{
    if (runningTotal == 0){
       runningTotal = selectedNumber;
-   }
-   else{
+   } else {
       switch (operation) {
          case 0:
             runningTotal += selectedNumber;
@@ -151,8 +150,7 @@
 -(IBAction)Divide:(id)sender{
    if (runningTotal == 0){
       runningTotal = selectedNumber;
-   }
-   else{
+   } else {
       switch (operation) {
          case 0:
             runningTotal += selectedNumber;
@@ -176,8 +174,7 @@
 -(IBAction)Addition:(id)sender{
    if (runningTotal == 0){
       runningTotal = selectedNumber;
-   }
-   else{
+   } else {
       switch (operation) {
          case 0:
             runningTotal += selectedNumber;
@@ -201,8 +198,7 @@
 -(IBAction)Subtraction:(id)sender{
    if (runningTotal == 0){
       runningTotal = selectedNumber;
-   }
-   else{
+   } else {
       switch (operation) {
          case 0:
             runningTotal += selectedNumber;
@@ -235,6 +231,24 @@
    CalcDisplay.text = [NSString stringWithFormat:formatString, runningTotal];
 }
 -(IBAction)squareRoot:(id)sender{
+   if (runningTotal == 0) {
+      runningTotal = selectedNumber;
+   }
+   runningTotal = sqrt(runningTotal);
+   operation = -1;
+   selectedNumber = runningTotal;
+   int decimalPlaces = 2;
+   NSString *formatString = [NSString stringWithFormat:@"%%1.%if",decimalPlaces];
+   if ([NSString stringWithFormat:formatString,runningTotal].length > 10) {
+      CalcDisplay.text = @"Ovrflw Err";
+      runningTotal = 0;
+      selectedNumber = 0;
+      operation = -1;
+      return;
+   } else {
+      CalcDisplay.text = [NSString stringWithFormat:formatString,runningTotal];
+      selectedNumber = (float)[CalcDisplay.text floatValue];
+   }
 
 }
 -(IBAction)xSquared:(id)sender{
@@ -251,8 +265,7 @@
       selectedNumber = 0;
       operation = -1;
       return;
-   }
-   else{
+   } else {
       CalcDisplay.text = [NSString stringWithFormat:formatString, runningTotal];
       selectedNumber = (float)[CalcDisplay.text floatValue];
    }
@@ -271,14 +284,34 @@
       selectedNumber = 0;
       operation = -1;
       return;
-   }
-   else{
+   } else {
       CalcDisplay.text = [NSString stringWithFormat:formatString, runningTotal];
       selectedNumber = (float)[CalcDisplay.text floatValue];
    }
 }
 -(IBAction)yToX:(id)sender{
-   
+   if (runningTotal == 0){
+      runningTotal = selectedNumber;
+   } else {
+      switch (operation) {
+         case 0:
+            runningTotal += selectedNumber;
+            break;
+         case 1:
+            runningTotal -= selectedNumber;
+            break;
+         case 2:
+            runningTotal *= selectedNumber;
+            break;
+         case 3:
+            runningTotal /= selectedNumber;
+            break;
+         default:
+            break;
+      }
+   }
+   operation = 4;
+   selectedNumber = 0;
 }
 -(IBAction)positiveOrNegative:(id)sender{
    
@@ -286,8 +319,7 @@
 -(IBAction)Equals:(id)sender{
    if (runningTotal == 0){
       runningTotal = selectedNumber;
-   }
-   else{
+   } else {
       switch (operation) {
          case 0:
             runningTotal += selectedNumber;
