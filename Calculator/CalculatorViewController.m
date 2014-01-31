@@ -122,6 +122,8 @@
          case 3:
             runningTotal /= selectedNumber;
             break;
+         case 4:
+            runningTotal = pow(runningTotal, selectedNumber);
          default:
             break;
       }
@@ -148,6 +150,8 @@
          case 3:
             runningTotal /= selectedNumber;
             break;
+         case 4:
+            runningTotal = pow(runningTotal, selectedNumber);
          default:
             break;
       }
@@ -174,6 +178,8 @@
          case 3:
             runningTotal /= selectedNumber;
             break;
+         case 4:
+            runningTotal = pow(runningTotal, selectedNumber);
          default:
             break;
       }
@@ -200,6 +206,8 @@
          case 3:
             runningTotal /= selectedNumber;
             break;
+         case 4:
+            runningTotal = pow(runningTotal, selectedNumber);
          default:
             break;
       }
@@ -296,6 +304,8 @@
          case 3:
             runningTotal /= selectedNumber;
             break;
+         case 4:
+            runningTotal = pow(runningTotal, selectedNumber);
          default:
             break;
       }
@@ -310,6 +320,7 @@
    if (runningTotal == 0){
       runningTotal = (float)[CalcDisplay.text floatValue];
    } else {
+      CalcDisplay.text = @"0";
       switch (operation) {
          case 0:
             runningTotal += selectedNumber;
@@ -323,6 +334,8 @@
          case 3:
             runningTotal /= selectedNumber;
             break;
+         case 4:
+            runningTotal = pow(runningTotal, selectedNumber);
          default:
             break;
       }
