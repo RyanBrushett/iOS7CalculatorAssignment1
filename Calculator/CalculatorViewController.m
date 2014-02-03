@@ -99,6 +99,7 @@
    if (CalcDisplay.text.length >= 7) {
       return;
    }
+      // :(
 }
 
 #pragma mark - Operations
@@ -314,7 +315,22 @@
    selectedNumber = 0;
 }
 -(IBAction)positiveOrNegative:(id)sender{
-   
+   if (runningTotal == 0) {
+      runningTotal = selectedNumber;
+   }
+   runningTotal = runningTotal - (2 * runningTotal);
+   int decimalPlaces = 2;
+   NSString *formatString = [NSString stringWithFormat:@"%%1.%if",decimalPlaces];
+   if ([NSString stringWithFormat:formatString, runningTotal].length > 10) {
+      CalcDisplay.text = @"Ovrflw Err";
+      runningTotal = 0;
+      selectedNumber = 0;
+      operation = -1;
+      return;
+   } else {
+      CalcDisplay.text = [NSString stringWithFormat:formatString, runningTotal];
+      selectedNumber = (float)[CalcDisplay.text floatValue];
+   }
 }
 -(IBAction)Equals:(id)sender{
    if (runningTotal == 0){
