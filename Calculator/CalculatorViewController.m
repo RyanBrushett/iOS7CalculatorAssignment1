@@ -16,6 +16,12 @@
 
 #pragma mark - Numbers/Digits
 
+   /* 
+    * Here we have all of the methods for the number buttons.
+    * They work very simply. Basically they all check to make sure
+    * the string in the calc display is not too long and, if that goes ok
+    * they multiply "selected number" by 10 and add the button number.
+    */
 -(IBAction)Number0:(id)sender{
    if (CalcDisplay.text.length >= 7) {
       return;
@@ -104,6 +110,17 @@
 
 #pragma mark - Operations
 
+   /*
+    * Running total is used so you can chain operations together.
+    * Each operation chains along happily and adds its own operation
+    * value at the end. For example:
+    * If I press 2 + 6 - 3, the operation is changed to 0 when I hit
+    * the plus button and the running total becomes 2. 
+    * I type 6 and then - which reads the operation as 0 and so it adds 2 and 6,
+    * making 8, then changing the operation to 1.
+    * If I then type the equals sign, it will read the operation as 1, subtract
+    * 3 from 8, and display 5 on the screen.
+    */
 -(IBAction)Multiply:(id)sender{
    if (runningTotal == 0){
       runningTotal = selectedNumber;
@@ -216,6 +233,11 @@
    operation = 1;
    selectedNumber = 0;
 }
+
+   /*
+    * These operations simply operate on the number in the display
+    * and then return.
+    */
 -(IBAction)oneOverX:(id)sender{
    if (runningTotal == 0){
       runningTotal = selectedNumber;
@@ -314,6 +336,11 @@
    operation = 4;
    selectedNumber = 0;
 }
+   /*
+    * Positive or negative works by subtracting 2 * the running total from
+    * the running total. This works for switching from positive to negative
+    * and back again.
+    */
 -(IBAction)positiveOrNegative:(id)sender{
    if (runningTotal == 0) {
       runningTotal = selectedNumber;
